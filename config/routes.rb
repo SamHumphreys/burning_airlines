@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root :to => 'users#mainpage'
+
   resources :users
   resources :reservations
   resources :flights

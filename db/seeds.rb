@@ -1,5 +1,5 @@
-Airplane.destroy_all
-  
+Aeroplane.destroy_all
+Aeroplane.create(name: 'Boing070', rows: '250', columns: "12")
 
 
 
@@ -8,7 +8,7 @@ Flight.destroy_all
 
 
 
-Reservations.destroy_all
+Reservation.destroy_all
 
 
 

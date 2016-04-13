@@ -16,16 +16,6 @@ app.AeroplaneContentView  = Backbone.View.extend({
     });
   },
 
-  //Funcitons to create a new aeroplane
-  //render input controls for new aeroplane input
-  renderNewPlaneControls: function(){
-    console.log("AeroplaneContentView.renderNewPlaneControls");
-    //Add Input boxes for Name, Row, Column
-
-
-    // var secretInputViewTemplate = $("#aeroplaneAddTemplate").html();
-    // this.$el.html(secretInputViewTemplate);
-  },
 
   //Listen for ENTER keypress
   checkForEnter: function (event) {
@@ -64,8 +54,7 @@ app.AeroplaneContentView  = Backbone.View.extend({
         if (newRows > 0) {
           //add <TD> elements for each row
           for (var j = 1; j <= rowsLimit; j++) {
-            console.log("add row");
-            strRowColHTML += "<td>x</td>";
+            strRowColHTML += "<td>"+String.fromCharCode(745)+"</td>";
           }
           strRowColHTML += "</tr>";
         }
@@ -89,8 +78,6 @@ app.AeroplaneContentView  = Backbone.View.extend({
       strRowColHTML += "</tr></table>";
     }
     // strRowColHTML += "";
-    console.log(strRowColHTML);
-    console.log(String.fromCharCode(66));
     // var addRows = this.$el.find("#planeRowContent");
     this.$el.append(strRowColHTML);
   },

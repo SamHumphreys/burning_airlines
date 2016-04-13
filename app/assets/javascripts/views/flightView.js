@@ -11,7 +11,8 @@ app.FlightView = Backbone.View.extend ({
     var plane = app.aeroplanes.get(planeID).attributes;
     var planeName = plane.name;
     var totalSeats = plane.rows * plane.columns;
-    this.$el.text('<td>' + date + '</td><td>' + planeID + '</td><td>' + origin + '/' + destination + '</td><td>' + planeName + '</td>');
+    this.$el.text('<td>' + date + '</td><td>' + planeID + '</td><td>' + origin + '/' + destination + '</td><td>' + planeName + '</td><td>' + totalSeats + '</td>');
+    console.log(this.$el.text());
     this.$el.appendTo('#flightsContentTable');
   }
 });

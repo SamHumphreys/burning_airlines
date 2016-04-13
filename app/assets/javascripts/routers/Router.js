@@ -3,10 +3,11 @@ var app = app || {};
 app.Router = Backbone.Router.extend({
   routes: {  //config.routes/rb
     '' : 'index',
-    'aeroplanes' : 'aeroplanesRoute',
+    'aeroplanes' : 'aeroplanesShow',
+    'aeroplanesAdd' : 'aeroplanesAdd',
     'flights': 'flights'
-  }
-  ,
+  },
+
   flights: function () {
     console.log('smelly feet');
   },
@@ -17,10 +18,15 @@ app.Router = Backbone.Router.extend({
     appView.render();
   },
 
-  aeroplanesRoute: function () { //Controllers
-    console.log("Router");
+  aeroplanesShow: function () { //Controllers
+    console.log("Router- call aeroplanesRoute");
     var appView = new app.AppView();
     appView.aeroplanes();
-  }
+  },
 
+  aeroplanesAdd: function () { //Controllers
+    console.log("Router- call aeroplanesAdd");
+    var appView = new app.AppView();
+    appView.aeroplanesAdd();
+  }
 });

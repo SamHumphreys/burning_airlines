@@ -9,7 +9,8 @@ app.Router = Backbone.Router.extend({
   }
   ,
   flights: function () {
-    console.log('smelly feet');
+    var flightView = new app.flightView({collection: flights});
+    console.log(appView);
   },
 
   index: function () { //Controllers

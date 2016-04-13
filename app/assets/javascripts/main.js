@@ -6,9 +6,12 @@ _.templateSettings = {
 var app = app || {};
 
 $(document).ready(function(){
-  app.Aeroplanes = new app.Aeroplanes();
-  app.Aeroplanes.fetch();
+  app.aeroplanes = new app.Aeroplanes();
+  app.aeroplanes.fetch();
 
-  app.router = new app.AppRouter();
+  app.flights = new app.Flights();
+  app.flights.fetch();
+
+  app.router = new app.Router();
   Backbone.history.start();
 });

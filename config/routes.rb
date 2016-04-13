@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root :to => 'users#mainpage'
+  root :to => 'pages#index'
 
   resources :users
   resources :reservations

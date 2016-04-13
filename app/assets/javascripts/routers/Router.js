@@ -7,7 +7,7 @@ app.Router = Backbone.Router.extend({
   ,
 
   index: function () { //Controllers
-    console.log("Main Page is locaded");
+    console.log("Main Page is loaded");
     var appView = new app.AppView();
     appView.render();
   }

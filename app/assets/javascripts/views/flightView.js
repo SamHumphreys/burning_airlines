@@ -1,15 +1,17 @@
 var app = app || {};
 
-app.secretView = Backbone.View.extend ({
-  tagName: 'li',
+app.FlightView = Backbone.View.extend ({
+  tagName: 'tr',
   render: function () {
-    var date = this.model.get('date');
-    var origin = this.model.get('origin');
-    var destination = this.model.get('destination');
-    var planeID = this.model.get('aeroplane_id');
-    var plane = app.Aeroplanes.models.
-    var
-
+    var flight = this.model.attributes;
+    var date = flight.date;
+    var origin = flight.origin;
+    var destination = flight.destination;
+    var planeID = flight.aeroplane_id;
+    var plane = app.aeroplanes.get(planeID).attributes;
+    var planeName = plane.name;
+    var totalSeats = plane.rows * plane.columns;
+    this.$el.text('<td>' + date + '</td><td>' + planeID + '</td><td>' + origin + '/' + destination + '</td><td>' + planeName + '</td>');
+    this.$el.appendTo('#flightsContentTable');
   }
-
 });

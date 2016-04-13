@@ -5,8 +5,10 @@ app.Aeroplanes = Backbone.Collection.extend({
   //model this collection is based on
   model: app.Aeroplane,
   initialize: function() {
-    this.on('add', function (flight) {
-      var aeroplaneView = new app.AeroplaneView({ model: Aeroplane });
+    this.on("add", function (aeroplane) {
+      var aeroplaneView = new app.AeroplaneView({
+        model: aeroplane
+      });
       aeroplaneView.render();
     });
   }

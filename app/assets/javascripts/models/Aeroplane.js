@@ -4,7 +4,6 @@ app.Aeroplane = Backbone.Model.extend({
   urlRoot: '/aeroplanes',
 
   defaults: {
-    id : 0,
     name: "",
     rows: "0",
     columns: "0"

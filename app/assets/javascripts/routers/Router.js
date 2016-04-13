@@ -7,10 +7,7 @@ app.Router = Backbone.Router.extend({
     'flights': 'flights'
   }
   ,
-  flights: function () {
-    var flightView = new app.flightView({collection: flights});
-    console.log(appView);
-  },
+
 
   index: function () { //Controllers
     console.log("Main Page is loaded");
@@ -22,6 +19,11 @@ app.Router = Backbone.Router.extend({
     console.log("Router");
     var appView = new app.AppView();
     appView.aeroplanes();
+  },
+
+  flights: function () {
+    var appView = new app.AppView();
+    appView.flights();
   }
 
 });

@@ -5,7 +5,7 @@ app.AeroplaneContentView  = Backbone.View.extend({
   el: ".main",
 
   events: {
-    'click button' : 'createPlane',
+    'click button' : 'createAeroplane',
     'keypress textarea' : 'checkForEnter'
   },
   //Function to list all Planes
@@ -21,11 +21,9 @@ app.AeroplaneContentView  = Backbone.View.extend({
   renderNewPlaneControls: function(){
     console.log("AeroplaneContentView.renderNewPlaneControls");
     //Add Input boxes for Name, Row, Column
-    this.$el.appendTo("<label for='choices'># Choices for Students</label>");
-    this.$el.appendTo("<input type='number' name='choices' step=1 />");
 
 
-    // var secretInputViewTemplate = $("#secretInputViewTemplate").html();
+    // var secretInputViewTemplate = $("#aeroplaneAddTemplate").html();
     // this.$el.html(secretInputViewTemplate);
   },
 
@@ -43,14 +41,13 @@ app.AeroplaneContentView  = Backbone.View.extend({
     var newAeroplane = new app.Aeroplane();
     var newName = this.$el.find("#aeroplaneName").val();
     var newRows = this.$el.find("#aeroplaneRows").val();
-    var newColums = this.$el.find("#aeroplaneColumns").val();
+    var newColumns = this.$el.find("#aeroplaneColumns").val();
       newAeroplane.set({
         name: newName,
         rows: newRows,
         columns: newColumns
       });
     newAeroplane.save();
-    app.Aeroplanes.add(newAeroplane);
     this.$el.find("#aeroplaneName").val('').focus();
     this.$el.find("#aeroplaneRows").val('');
     this.$el.find("#aeroplaneColumns").val('');

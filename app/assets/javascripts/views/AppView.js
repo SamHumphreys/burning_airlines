@@ -17,7 +17,7 @@ app.AppView = Backbone.View.extend({
   },
 
   aeroplanesAdd : function (){
-      var appViewTemplate = $("#aeroplaneContentTemplate").html();
+      var appViewTemplate = $("#aeroplaneAddTemplate").html();
       this.$el.html(appViewTemplate);
       var aeroplaneContentView = new app.AeroplaneContentView({collection: app.aeroplanes});
       aeroplaneContentView.renderNewPlaneControls();

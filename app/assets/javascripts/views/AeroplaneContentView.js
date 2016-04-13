@@ -16,16 +16,6 @@ app.AeroplaneContentView  = Backbone.View.extend({
     });
   },
 
-  //Funcitons to create a new aeroplane
-  //render input controls for new aeroplane input
-  renderNewPlaneControls: function(){
-    console.log("AeroplaneContentView.renderNewPlaneControls");
-    //Add Input boxes for Name, Row, Column
-
-
-    // var secretInputViewTemplate = $("#aeroplaneAddTemplate").html();
-    // this.$el.html(secretInputViewTemplate);
-  },
 
   //Listen for ENTER keypress
   checkForEnter: function (event) {
@@ -51,11 +41,45 @@ app.AeroplaneContentView  = Backbone.View.extend({
     this.$el.find("#aeroplaneName").val('').focus();
     this.$el.find("#aeroplaneRows").val('');
     this.$el.find("#aeroplaneColumns").val('');
-    console.log(this.$el);
-    // var aeroPlaneContent = $("#aeroplaneAddContent").html();
+    var strPlane ="<h4>"+newName+"</h4></br>";
+    this.$el.append(strPlane);
 
-    this.$el.appendTo("#aeroplaneAddContent");
-
+    //draw the layout grid for a new plane. Note HTML <TR> are columns and HTML <TD> are rows
+    var rowsLimit = 0;
+    newRows >13 ?  rowsLimit = 13 : rowLimit = newRows;
+    if (newColumns > 0) {
+      var strRowColHTML ='<table class="planes_content_table">';
+      for (var i = 1; i <= newColumns; i++) {
+        strRowColHTML += "<tr><td>"+String.fromCharCode(64+i);
+        if (newRows > 0) {
+          //add <TD> elements for each row
+          for (var j = 1; j <= rowsLimit; j++) {
+            strRowColHTML += "<td>"+String.fromCharCode(745)+"</td>";
+          }
+          strRowColHTML += "</tr>";
+        }
+      }
+      strRowColHTML += "<tr><td></td>";
+      for (var i = 1; i <= rowsLimit; i++){
+        if (newRows <=13 ) {
+          strRowColHTML += "<td>"+i+"</td>";
+        }
+        else if (i < 11 && newRows >13){
+          strRowColHTML += "<td>"+i+"</td>";
+        }
+        else if ((i ===11 || i ===23 ) && newRows >13){
+          strRowColHTML += "<td>..</td>";
+        }
+        else if (i ===13  && newRows >13) {
+          strRowColHTML += "<td>"+newRows+"</td>";
+        }
+        else {}
+      }
+      strRowColHTML += "</tr></table>";
+    }
+    // strRowColHTML += "";
+    // var addRows = this.$el.find("#planeRowContent");
+    this.$el.append(strRowColHTML);
   },
 
 });

@@ -4,7 +4,8 @@ app.Router = Backbone.Router.extend({
   routes: {  //config.routes/rb
     '' : 'index',
     'aeroplanes' : 'aeroplanesRoute',
-    'flights': 'flights'
+    'flights': 'flights',
+    'users': 'users'
   }
   ,
   flights: function () {
@@ -21,6 +22,11 @@ app.Router = Backbone.Router.extend({
     console.log("Router");
     var appView = new app.AppView();
     appView.aeroplanes();
+  },
+  users: function () {
+    console.log("users routes something something");
+    var appView = new app.AppView();
+    appView.users();
   }
 
 });

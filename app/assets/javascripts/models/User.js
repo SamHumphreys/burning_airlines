@@ -5,5 +5,5 @@ app.User = Backbone.Model.extend({
 
   defaults: {
     content: ""
-  };
+  }
 });

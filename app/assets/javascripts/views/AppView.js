@@ -7,7 +7,7 @@ app.AppView = Backbone.View.extend({
   render : function (){
     var appViewTemplate = $("#appViewTemplate").html();
     this.$el.html(appViewTemplate);
-    var ContentView = new app.ContentView({model: todo});
+    var ContentView = new app.ContentView({collection: app.aeroplanes});
     ContentView.render();
   }
 })

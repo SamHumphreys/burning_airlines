@@ -6,10 +6,10 @@ app.Aeroplanes = Backbone.Collection.extend({
   model: app.Aeroplane,
   initialize: function() {
     this.on("add", function (aeroplane) {
-      var aeroplaneView = new app.AeroplaneView({
-        model: aeroplane
-      });
-      aeroplaneView.render();
+      // var aeroplaneView = new app.AeroplaneView({
+      //   model: aeroplane
+      // });
+      // aeroplaneView.render();
     });
   }
 });

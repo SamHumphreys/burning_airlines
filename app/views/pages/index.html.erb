@@ -16,8 +16,9 @@
 </script>
 
 <script id="headerViewTemplate" type='text/template'>
-  <p>Controls View (test item remove)<p>
-
+  <button id="header_button1" class="header_button">BUTTON 1</button>
+  <button id="header_button2" class="header_button">BUTTON 2</button>
+  <button id="header_button3" class="header_button">BUTTON 3</button>
 </script>
 
 <script id="controlsViewTemplate" type='text/template'>
@@ -28,7 +29,6 @@
 <script id="aeroplaneContentTemplate" type='text/template'>
   <h1>Our Mighty Fleet</h1>
   <ul id="aeroplaneData"></ul>
-
 </script>
 
 <script id="aeroplaneAddTemplate" type='text/template'>
@@ -40,6 +40,26 @@
   <label for="Airplane Name: ">Plane name columns</label>
   <input type="text" .class="controls"  id="aeroplaneColumns"/>
   <button class="controls">Create!</button>
+</script>
+
+<script id="searchControlsTemplate" type='text/template'>
+  <h1>Search for flights</h1>
+  <label for="From: ">Departure airport</label>
+  <input type="text" .class="controls" id="searchFrom" />
+  <label for="To: ">Arrival airport</label>
+  <input type="text" .class="controls"  id="searchTo"/>
+  <button id="searchButton" class="controls">Search!</button>
+</script>
+
+<script id="searchContent" type="text/template">
+  <table id="flightsContentTable">
+    <tr>
+      <th>Date</th>
+      <th>Flight</th>
+      <th>From/To</th>
+      <th>Plane</th>
+    </tr>
+  </table>
 </script>
 
 <script id="aeroplaneAddContent" type='text/template'>

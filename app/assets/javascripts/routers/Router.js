@@ -6,6 +6,7 @@ app.Router = Backbone.Router.extend({
     'aeroplanes' : 'aeroplanesShow',
     'aeroplanesAdd' : 'aeroplanesAdd',
     'flights': 'flights',
+    'search': 'search',
     'users': 'users'
   },
 
@@ -36,5 +37,11 @@ app.Router = Backbone.Router.extend({
     console.log("Router- call aeroplanesAdd");
     var appView = new app.AppView();
     appView.aeroplanesAdd();
+  },
+
+  search: function () { //Controllers
+    console.log("Router- call SEARCH");
+    var appView = new app.AppView();
+    appView.search();
   }
 });

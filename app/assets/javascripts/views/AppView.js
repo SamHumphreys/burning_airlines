@@ -16,16 +16,27 @@ app.AppView = Backbone.View.extend({
   },
 
   aeroplanesAdd : function (){
-      var appViewTemplate = $("#aeroplaneAddTemplate").html();
+      var appViewTemplate = $("#headerViewTemplate").html();
       this.$el.html(appViewTemplate);
+      var appViewTemplate = $("#aeroplaneAddTemplate").html();
+      this.$el.append(appViewTemplate);
       var appViewTemplate = $("#aeroplaneAddContent").html();
       this.$el.append(appViewTemplate);
       var aeroplaneContentView = new app.AeroplaneContentView({collection: app.aeroplanes});
-      aeroplaneContentView.renderNewPlaneControls();
+  },
+
+  search : function (){
+      var appViewTemplate = $("#headerViewTemplate").html();
+      this.$el.html(appViewTemplate);
+      var appViewTemplate = $("#searchControlsTemplate").html();
+      this.$el.append(appViewTemplate);
+      var appViewTemplate = $("#searchContent").html();
+      this.$el.append(appViewTemplate);
+      var aeroplaneContentView = new app.AeroplaneContentView({collection: app.aeroplanes});
   },
 
   flights: function () {
-    var appViewTemplate = $('#flightsContent').html();
+    var appViewTemplate = $('#flightsScreen').html();
     this.$el.html(appViewTemplate);
     var flightView = new app.FlightView({collection: app.flights});
     flightView.render();

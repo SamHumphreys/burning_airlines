@@ -1,15 +1,21 @@
 Aeroplane.destroy_all
 a1 = Aeroplane.create :name => 'Boing070', :rows => '250', :columns => "12"
 a2 = Aeroplane.create :name => 'A380', :rows => '20', :columns => '8'
+a3 = Aeroplane.create :name => '717', :rows => '15', :columns => '4'
 
 
 
 Flight.destroy_all
 f1 = Flight.create :origin => 'SSY', :destination => 'BNE', :date => '14 Apr 2016'
 f2 = Flight.create :origin => 'MLB', :destination => 'MCY', :date => '19 Apr 2016'
+f3 = Flight.create :origin => 'DWN', :destination => 'PTH', :date => '19 Apr 2016'
+f4 = Flight.create :origin => 'NCL', :destination => 'CBR', :date => '19 Apr 2016'
 
-a2.flights << f1
-a1.flights << f2
+a1.flights << f1
+a2.flights << f2
+a3.flights << f3
+a1.flights << f4
+
 
 Reservation.destroy_all
 

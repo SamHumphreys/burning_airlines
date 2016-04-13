@@ -51,6 +51,11 @@ app.AeroplaneContentView  = Backbone.View.extend({
     this.$el.find("#aeroplaneName").val('').focus();
     this.$el.find("#aeroplaneRows").val('');
     this.$el.find("#aeroplaneColumns").val('');
+    console.log(this.$el);
+    // var aeroPlaneContent = $("#aeroplaneAddContent").html();
+
+    this.$el.appendTo("#aeroplaneAddContent");
+
   },
 
 });

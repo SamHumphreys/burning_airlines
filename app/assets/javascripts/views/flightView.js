@@ -1,10 +1,12 @@
 var app = app || {};
 
 app.FlightView = Backbone.View.extend ({
+
   events: {
-    'click button': 'createFlight',
+    'click button#': 'createFlight',
     'click #flightCancel': 'cancelFlight'
   },
+
   render: function () {
     this.collection.each(function(f) {
       var flight = f.attributes;
@@ -52,4 +54,5 @@ app.FlightView = Backbone.View.extend ({
   cancelFlight: function () {
     console.log('cancel flight clicked');
   }
+
 });

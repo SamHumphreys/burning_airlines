@@ -36,7 +36,7 @@ app.AppView = Backbone.View.extend({
   },
 
   flights: function () {
-    var appViewTemplate = $('#flightsContent').html();
+    var appViewTemplate = $('#flightsScreen').html();
     this.$el.html(appViewTemplate);
     var flightView = new app.FlightView({collection: app.flights});
     flightView.render();

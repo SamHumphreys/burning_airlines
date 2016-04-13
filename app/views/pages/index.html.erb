@@ -64,24 +64,29 @@
 
 <script id="aeroplaneAddContent" type='text/template'>
   <h4 id="planeName" class="content_h4"></h4>
+  <table style="width:100%" class="content_table">
+    <tr id="planeRow_content" class="content_table_row">
 </script>
 
-<script id="flightsContent" type="text/template">
-  <table id="flightsContentTable">
-    <tr>
-      <th>Date</th>
-      <th>Flight</th>
-      <th>From/To</th>
-      <th>Plane</th>
-      <th>Seats</th>
-    </tr>
-  </table>
-</script>
-
-<script id="flightAddTemplate" type="text/template">
-  <input type="select">
-  <input type="select">
-  <input type="select">
-  <input type="select">
-  <input type="select">
+<script id="flightsScreen" type="text/template">
+  <div>Header stuff here</div>
+  <div id="flightsSearch">
+    <input id="flightDate" type="date">
+    <select id="flightStart"></select>
+    <select id="flightEnd"></select>
+    <select id="flightPlane"></select>
+    <button id="flightCancel">Cancel</button>
+    <button id="flightSave">Save</button>
+  </div>
+  <div>
+    <table id="flightsContentTable">
+      <tr>
+        <th>Date</th>
+        <th>Flight</th>
+        <th>From/To</th>
+        <th>Plane</th>
+        <th>Seats</th>
+      </tr>
+    </table>
+  </div>
 </script>

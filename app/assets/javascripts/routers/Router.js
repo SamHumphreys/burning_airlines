@@ -5,11 +5,8 @@ app.Router = Backbone.Router.extend({
     '' : 'index',
     'aeroplanes' : 'aeroplanesShow',
     'aeroplanesAdd' : 'aeroplanesAdd',
-    'flights': 'flights'
-  },
-
-  flights: function () {
-    console.log('smelly feet');
+    'flights': 'flights',
+    'users': 'users'
   },
 
   index: function () { //Controllers
@@ -22,6 +19,17 @@ app.Router = Backbone.Router.extend({
     console.log("Router- call aeroplanesRoute");
     var appView = new app.AppView();
     appView.aeroplanes();
+  },
+
+  flights: function () {
+    var appView = new app.AppView();
+    appView.flights();
+  },
+
+  users: function () {
+    console.log("users routes something something");
+    var appView = new app.AppView();
+    appView.users();
   },
 
   aeroplanesAdd: function () { //Controllers

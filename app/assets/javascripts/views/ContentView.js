@@ -4,10 +4,11 @@ app.ContentView = Backbone.View.extend({
 
   tagName: "li",
 
-  render: function (){
-    var content = this.model.get("name");
-    this.$el.text(content);
-    this.$el.prependTo("temp");
+  render : function (){
+    var appViewTemplate = $("#appViewTemplate").html();
+    this.$el.html(appViewTemplate);
+    var ContentView = new app.ContentView({collection: app.aeroplanes});
+    ContentView.render();
   }
 
 });

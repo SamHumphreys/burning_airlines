@@ -1,14 +1,16 @@
 var app = app || {};
 
-app.secretView = Backbone.View.extend ({
+app.FlightView = Backbone.View.extend ({
   tagName: 'li',
   render: function () {
-    var date = this.model.get('date');
-    var origin = this.model.get('origin');
-    var destination = this.model.get('destination');
-    var planeID = this.model.get('aeroplane_id');
-    var plane = app.Aeroplanes.models.
-    var
+    var flight = this.model.attributes;
+    var date = flight.date;
+    var origin = flight.origin;
+    var destination = flight.destination;
+    var planeID = flight.aeroplane_id;
+    var plane = app.aeroplanes.get(planeID).attributes;
+    var planeName = plane.name;
+    var totalSeats = plane.rows * plane.columns;
 
   }
 

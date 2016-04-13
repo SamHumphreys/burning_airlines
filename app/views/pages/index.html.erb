@@ -1,3 +1,5 @@
+<h1>some other crap including all the templates which you see based on your admin status</h1>
+
 <div class="main"></div>
 
 
@@ -17,9 +19,22 @@
 
 </script>
 
-<script id="contentViewTemplate" type='text/template'>
-  <p>Controls View (test item remove)<p>
-    <p id="temp">Aeroplane Name: {{= name }}</p>
-    <p>Rows: {{= rows }}</p>
-    <p>Columns: {{= columns }}</p>
+<script id="aeroplaneContentTemplate" type='text/template'>
+  <h1>Our Mighty Fleet</h1>
+  <ul id="aeroplaneData"></ul>
+
+</script>
+
+<script id="flightsContent" type="text/template">
+  <table>
+    <tr>
+      <th>Date</th>
+      <th>Flight</th>
+      <th>From/To</th>
+      <th>Plane</th>
+      <th>Seats</th>
+    </tr>
+
+  </table>
+
 </script>

@@ -5,9 +5,9 @@ app.ContentView = Backbone.View.extend({
   tagName: "li",
 
   render: function (){
-    var content = this.model.get("content");
+    var content = this.model.get("name");
     this.$el.text(content);
-    this.$el.prependTo("#secrets");
+    this.$el.prependTo("temp");
   }
 
 });

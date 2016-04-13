@@ -8,7 +8,8 @@ app.AeroplaneView = Backbone.View.extend({
     console.log("rendering aeroplane");
     var name = this.model.get("name");
     this.$el.text(name);
-    this.$el.prependTo("#aeroplaneData");
+    debugger;
+    this.$el.appendTo("#aeroplaneData");
   }
 
 });

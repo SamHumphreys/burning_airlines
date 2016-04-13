@@ -3,7 +3,8 @@ var app = app || {};
 app.Router = Backbone.Router.extend({
   routes: {  //config.routes/rb
     '' : 'index',
-    'aeroplanes' : 'aeroplanesRoute',
+    'aeroplanes' : 'aeroplanesShow',
+    'aeroplanesAdd' : 'aeroplanesAdd',
     'flights': 'flights',
     'users': 'users'
   },
@@ -14,8 +15,8 @@ app.Router = Backbone.Router.extend({
     appView.render();
   },
 
-  aeroplanesRoute: function () { //Controllers
-    console.log("Router");
+  aeroplanesShow: function () { //Controllers
+    console.log("Router- call aeroplanesRoute");
     var appView = new app.AppView();
     appView.aeroplanes();
   },
@@ -29,6 +30,11 @@ app.Router = Backbone.Router.extend({
     console.log("users routes something something");
     var appView = new app.AppView();
     appView.users();
-  }
+  },
 
+  aeroplanesAdd: function () { //Controllers
+    console.log("Router- call aeroplanesAdd");
+    var appView = new app.AppView();
+    appView.aeroplanesAdd();
+  }
 });

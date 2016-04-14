@@ -54,7 +54,6 @@ app.CreateFlightView = Backbone.View.extend ({
     this.cancelFlight();
   },
   cancelFlight: function () {
-    console.log('cancel flight clicked');
     $('#flightDate').val(null);
     $('#flightStart').prop('selectedIndex', 0);
     $('#flightEnd').prop('selectedIndex', 0);

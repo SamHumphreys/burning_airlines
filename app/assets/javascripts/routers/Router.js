@@ -7,7 +7,8 @@ app.Router = Backbone.Router.extend({
     'aeroplanesAdd' : 'aeroplanesAdd',
     'flights': 'flights',
     'search': 'search',
-    'users': 'users'
+    'users': 'users',
+    'flight/:id' : 'showFlight'
   },
 
   index: function () { //Controllers
@@ -43,5 +44,22 @@ app.Router = Backbone.Router.extend({
     console.log("Router- call SEARCH");
     var appView = new app.AppView();
     appView.search();
-  }
+  },
+
+  showFlight: function (id) { //Controllers
+    console.log("SHOW FLIGHT");
+    console.log(id);
+    var appView = new app.AppView();
+    appView.showFlight(id);
+    // var appView = new app.AppView();
+    // appView.search();
+  },
+
+  // showRes: function () { //Test route for reservations dev
+  //   console.log("SHOW RES");
+  //   var appView = new app.AppView();
+  //   appView.reservation();
+  // }
+
+
 });

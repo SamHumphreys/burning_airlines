@@ -13,6 +13,9 @@ $(document).ready(function(){
   app.aeroplanes = new app.Aeroplanes();
   app.aeroplanes.fetch();
 
+  app.reservations = new app.Reservations();
+  app.reservations.fetch();
+
   app.flights = new app.Flights();
   app.flights.fetch().done(function () {
     Backbone.history.start();

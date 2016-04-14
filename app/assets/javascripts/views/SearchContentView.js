@@ -74,7 +74,7 @@ app.AeroplaneSearchView  = Backbone.View.extend({
         && f.attributes.destination === toAirport) {
         var plane = app.aeroplanes.get(f.attributes.aeroplane_id ).attributes;
         var planeName = plane.name;
-        var searchResults = "<td>" + f.attributes.date + "</td><td><a href='#flights/" + f.attributes.id + "'>" + f.attributes.id + "</a></td><td>" + f.attributes.origin + "/" + f.attributes.destination + "</td><td>" + planeName+ "</td>";
+        var searchResults = "<td>" + f.attributes.date + "</td><td><a href='#flight/" + f.attributes.id + "'>" + f.attributes.id + "</a></td><td>" + f.attributes.origin + "/" + f.attributes.destination + "</td><td>" + planeName+ "</td>";
         $('#searchContentTable').append(searchResults);
       }
     });

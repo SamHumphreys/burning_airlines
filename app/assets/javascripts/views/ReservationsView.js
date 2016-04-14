@@ -41,6 +41,7 @@ app.ReservationsView  = Backbone.View.extend({
     this.$el.append(appViewTemplate);
     var x =this.$el;
     app.flights.fetch().done(function() {
+      console.log("FLIGHT ID: "+ flightId);
       var flight = app.flights.get(flightId).attributes;
       var plane  = app.aeroplanes.get(flight["aeroplane_id"]).attributes;
       var columns = plane.columns;

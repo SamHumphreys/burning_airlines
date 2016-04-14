@@ -48,14 +48,9 @@ app.AppView = Backbone.View.extend({
       this.$el.append(appViewTemplate);
       var appViewTemplate = $("#reservationControlsTemplate").html();
       this.$el.append(appViewTemplate);
-<<<<<<< HEAD
-      var reservationView = new app.ReservationsView();
-      reservationView.renderReservations(id,{collection: app.reservations} );
-=======
       var reservationView = new app.ReservationsView({collection: app.flights});
       reservationView.renderReservations();
       this.buttonClicks();
->>>>>>> e97e9b88ffbdb415661080d9bb6b2cffa08e4446
 
   },
 

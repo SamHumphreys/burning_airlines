@@ -5,7 +5,7 @@ app.AeroplaneContentView  = Backbone.View.extend({
   el: ".main",
 
   events: {
-    'click button' : 'createAeroplane',
+    'click #addPlaneButton' : 'createAeroplane',
     'keypress textarea' : 'checkForEnter'
   },
   //Function to list all Planes
@@ -26,8 +26,14 @@ app.AeroplaneContentView  = Backbone.View.extend({
     }
   },
 
+  renderAdd : function () {
+    console.log("here renderAdd");
+  },
+
+
   //Create a new aeroplane from data entered on screen
   createAeroplane: function () {
+    console.log("createAeroplane");
     var newAeroplane = new app.Aeroplane();
     var newName = this.$el.find("#aeroplaneName").val();
     var newRows = this.$el.find("#aeroplaneRows").val();
@@ -78,7 +84,7 @@ app.AeroplaneContentView  = Backbone.View.extend({
       strRowColHTML += "</tr></table>";
     }
     // strRowColHTML += "";
-    // var addRows = this.$el.find("#planeRowContent");
+    var addRows = this.$el.find("#planeRowContent");
     this.$el.append(strRowColHTML);
   },
 

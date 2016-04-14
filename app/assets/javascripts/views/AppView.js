@@ -16,13 +16,15 @@ app.AppView = Backbone.View.extend({
   },
 
   aeroplanesAdd : function (){
+      // console.log("aeroplanesAdd : function (){);");
       var appViewTemplate = $("#headerViewTemplate").html();
       this.$el.html(appViewTemplate);
       var appViewTemplate = $("#aeroplaneAddTemplate").html();
       this.$el.append(appViewTemplate);
       var appViewTemplate = $("#aeroplaneAddContent").html();
       this.$el.append(appViewTemplate);
-      var aeroplaneContentView = new app.AeroplaneContentView({collection: app.aeroplanes});
+      var xyz = new app.AeroplaneContentView();
+
   },
 
   search : function (){
@@ -32,7 +34,7 @@ app.AppView = Backbone.View.extend({
       this.$el.append(appViewTemplate);
       var appViewTemplate = $("#searchContent").html();
       this.$el.append(appViewTemplate);
-      var aeroplaneContentView = new app.AeroplaneContentView({collection: app.aeroplanes});
+      var aeroplaneContentView = new app.AeroplaneContentView({collection: app.flights});
   },
 
   flights: function () {

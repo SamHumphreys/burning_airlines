@@ -35,7 +35,7 @@ app.AppView = Backbone.View.extend({
       var appViewTemplate = $("#searchContentTemplate").html();
       this.$el.append(appViewTemplate);
       var aeroplaneSearchView = new app.AeroplaneSearchView({collection: app.flights});
-      aeroplaneSearchView.renderAdd();
+      aeroplaneSearchView.renderSearch();
   },
 
   flights: function () {

@@ -18,6 +18,8 @@ $(document).ready(function(){
   app.flights = new app.Flights();
   app.flights.fetch();
 
+  app.reservations = new app.Reservations();
+  app.reservations.fetch();
 
   // **** un-comment this next bit if you want a timer ****
   window.setInterval(function () {

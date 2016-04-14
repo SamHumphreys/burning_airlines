@@ -20,7 +20,7 @@ app.CreateFlightView = Backbone.View.extend ({
     });
 
     app.aeroplanes.fetch().done(function () {
-      var planes = [];
+      var planes = [['','']];
 
       for (var i = 0; i < app.aeroplanes.models.length; i++) {
         var id = app.aeroplanes.models[i].attributes.id;
@@ -35,7 +35,6 @@ app.CreateFlightView = Backbone.View.extend ({
     });
   },
   createFlight: function () {
-    console.log('save clicked');
 
     var flight = new app.Flight();
 

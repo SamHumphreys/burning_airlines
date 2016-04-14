@@ -29,6 +29,13 @@ app.AeroplaneSearchView  = Backbone.View.extend({
   },
 
   loadDestinations: function() {
+    //Clear destinations drop-down
+    var select = document.getElementById("searchTo");
+    var length = select.options.length;
+    for (i = 0; i < length; i++) {
+      select.options[i] = null;
+    }
+    //Populate departure drop-down
     var airports = [];
     varOrigin = $('#searchFrom').val();
     this.collection.each(function(f) {
@@ -36,12 +43,12 @@ app.AeroplaneSearchView  = Backbone.View.extend({
         airports.push(f.attributes.destination);
       }
     });
+    //Populate destination drop-down
     var $searchTo = $('#searchTo');
     airports.forEach(function(airport) {
       var $option = $('<option/>').text(airport).val(airport);
       $searchTo.append($option);
     });
-
   },
 
   //Listen for ENTER keypress
@@ -55,34 +62,19 @@ app.AeroplaneSearchView  = Backbone.View.extend({
 
   //Create a new aeroplane from data entered on screen
   searchForFlights: function () {
-
+    this.$("#searchContentTable").remove();
+    var appViewTemplate = $("#searchContentTemplate").html();
+    this.$el.append(appViewTemplate);
     var fromAirport = this.$el.find("#searchFrom").val();
     var toAirport = this.$el.find("#searchTo").val();
     var searchResults = "";
     var x =this.$el;
-///////////////////////
-
-    // app.aeroplanes.fetch().done(function () {
-    //   var planes = [];
-    //
-    //   for (var i = 0; i < app.aeroplanes.models.length; i++) {
-    //     var id = app.aeroplanes.models[i].attributes.id;
-    //     var name = app.aeroplanes.get(id).attributes.name;
-    //     planes.push([id, name]);
-    //   };
-    //   var $flightPlane = $('#flightPlane');
-    //   planes.forEach(function(plane) {
-    //     var $option = $('<option/>').text(plane[1]).attr({value: plane[0]});
-    //     $flightPlane.append($option);
-    //   });
-    // });
-
-///////////////////////
     this.collection.each(function(f) {
-      if (f.attributes.origin === fromAirport && f.attributes.destination === toAirport) {
+      if (f.attributes.origin === fromAirport
+        && f.attributes.destination === toAirport) {
         var plane = app.aeroplanes.get(f.attributes.aeroplane_id ).attributes;
         var planeName = plane.name;
-        var searchResults = "<td>" + f.attributes.date + "</td><td>" + f.attributes.origin + "/" + f.attributes.destination + "</td><td>" + planeName+ "</td>";
+        var searchResults = "<td>" + f.attributes.date + "</td><td><a href='#flights/" + f.attributes.id + "'>" + f.attributes.id + "</a></td><td>" + f.attributes.origin + "/" + f.attributes.destination + "</td><td>" + planeName+ "</td>";
         $('#searchContentTable').append(searchResults);
       }
     });

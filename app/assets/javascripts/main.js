@@ -18,7 +18,7 @@ $(document).ready(function(){
     Backbone.history.start();
   }, 1000);
 
-  **** un-comment this next bit if you want a timer ****
+  // **** un-comment this next bit if you want a timer ****
   window.setInterval(function () {
     app.aeroplanes.fetch();
     app.flights.fetch();

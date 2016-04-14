@@ -42,17 +42,22 @@ app.CreateFlightView = Backbone.View.extend ({
     var origin = this.$el.find('#flightStart').val();
     var dest = this.$el.find('#flightEnd').val();
     var plane_id = Number(this.$el.find('#flightPlane').val());
-
     flight.set({
       aeroplane_id: plane_id,
       origin : origin,
       destination : dest,
       date : date
     });
-    flight.save();
-    app.flights.add(flight);
+    flight.save().done(function() {
+      app.flights.add(flight);
+    });
+    this.cancelFlight();
   },
   cancelFlight: function () {
     console.log('cancel flight clicked');
+    $('#flightDate').val(null);
+    $('#flightStart').prop('selectedIndex', 0);
+    $('#flightEnd').prop('selectedIndex', 0);
+    $('#flightPlane').prop('selectedIndex', 0);
   }
 });

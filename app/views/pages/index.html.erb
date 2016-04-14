@@ -45,22 +45,24 @@
 
 <script id="searchControlsTemplate" type='text/template'>
   <h1>Search for flights</h1>
+  <input id="flightDate" type="date">
   <label for="From: ">Departure airport</label>
-  <input type="text" .class="controls" id="searchFrom" />
+  <select .class="controls" id="searchFrom"></select>
   <label for="To: ">Arrival airport</label>
-  <input type="text" .class="controls"  id="searchTo"/>
+  <select .class="controls"  id="searchTo"></select>
   <button id="searchButton" class="controls">Search!</button>
 </script>
 
-<script id="searchContent" type="text/template">
-  <table id="searchContentTable">
-    <tr>
-      <th>Date</th>
-      <th>Flight</th>
-      <th>From/To</th>
-      <th>Plane</th>
-    </tr>
-  </table>
+<script id="searchContentTemplate" type="text/template">
+
+    <table id="searchContentTable">
+      <tr>
+        <th>Date</th>
+        <th>Flight</th>
+        <th>From/To</th>
+        <th>Plane</th>
+      </tr>
+    </table>
 </script>
 
 
@@ -88,18 +90,4 @@
       </tr>
     </table>
   </div>
-</script>
-
-
-<script id="searchContentTemplate" type="text/template">
-
-    <table id="searchContentTable">
-      <tr>
-        <th>Date</th>
-        <th>Flight</th>
-        <th>From/To</th>
-        <th>Plane</th>
-      </tr>
-    </table>
-
 </script>

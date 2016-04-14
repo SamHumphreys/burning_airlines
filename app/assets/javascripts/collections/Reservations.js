@@ -7,10 +7,9 @@ app.Reservations = Backbone.Collection.extend({
   initialize: function() {
     this.on("add", function (reservation) {
     });
-  }
+  },
+
 });
-
-
 
 
 

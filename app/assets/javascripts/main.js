@@ -21,10 +21,13 @@ $(document).ready(function(){
   app.reservations = new app.Reservations();
   app.reservations.fetch();
 
+  app.users = new app.Users();
+  app.users.fetch();
+
   // **** un-comment this next bit if you want a timer ****
-  window.setInterval(function () {
-    app.aeroplanes.fetch();
-    app.flights.fetch();
-  }, 4000);
+  // window.setInterval(function () {
+  //   app.aeroplanes.fetch();
+  //   app.flights.fetch();
+  // }, 4000);
 
 });

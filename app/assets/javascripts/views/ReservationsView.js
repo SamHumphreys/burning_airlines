@@ -7,69 +7,79 @@ app.ReservationsView  = Backbone.View.extend({
   events: {
     'click #searchButton' : 'searchForFlights',
     'keypress textarea' : 'checkForEnterSearchFlights',
-    'change #searchFrom' : 'loadDestinations'
+    'change #searchFrom' : 'loadDestinations',
+    'click td' : 'testFn'
   },
 
   initialize: function () {
     console.log("INIT app.ReservationsView ");
   },
 
-  renderReservations : function () {
-
-    this.$("#searchContentTable").remove();
-    var appViewTemplate = $("#searchContentTemplate").html();
-    this.$el.append(appViewTemplate);
-    var fromAirport = this.$el.find("#searchFrom").val();
-    var toAirport = this.$el.find("#searchTo").val();
-    var searchResults = "";
-    var x =this.$el;
-    this.collection.each(function(f) {
-      if (f.attributes.origin === fromAirport
-        && f.attributes.destination === toAirport) {
-        var plane = app.aeroplanes.get(f.attributes.aeroplane_id ).attributes;
-        var planeName = plane.name;
-        var searchResults = "<td>" + f.attributes.date + "</td><td><a href='#flights/" + f.attributes.id + "'>" + f.attributes.id + "</a></td><td>" + f.attributes.origin + "/" + f.attributes.destination + "</td><td>" + planeName+ "</td>";
-        $('#searchContentTable').append(searchResults);
-      }
+  testFn: function(x) {
+    var row = x.currentTarget.attributes[0].value;
+    var col = x.currentTarget.attributes[1].value;
+    var flightId = x.currentTarget.attributes[2].value;
+    var newRes = new app.Reservation();
+    newRes.set({
+      user_id: 99,
+      flight_id: flightId,
+      row: row,
+      col: col
     });
+    var userId = 99;
+    newRes.save();
+    x.toElement.textContent = "99";
+    // var user  = app.users.get(userId).attributes;
+    // console.log(user);
+  },
 
+  renderReservations : function (flightId) {
 
-    if (newColumns > 0) {
-      var strRowColHTML ='<table class="planes_content_table">';
-      for (var i = 1; i <= newColumns; i++) {
-        strRowColHTML += "<tr><td>"+String.fromCharCode(64+i);
-        if (newRows > 0) {
-          //add <TD> elements for each row
-          for (var j = 1; j <= rowsLimit; j++) {
-            strRowColHTML += "<td>"+String.fromCharCode(745)+"</td>";
+    var strRowColHTML ='<table class="reservation_content_table">';
+    this.$("#reservationContentTable").remove();
+    var appViewTemplate = $("#reservationContentTemplate").html();
+    this.$el.append(appViewTemplate);
+    var x =this.$el;
+    app.flights.fetch().done(function() {
+      var flight = app.flights.get(flightId).attributes;
+      var plane  = app.aeroplanes.get(flight["aeroplane_id"]).attributes;
+      var columns = plane.columns;
+      var rows = plane.rows;
+      if (rows > 0) {
+        for (var i = 0; i <= rows; i++) {
+          if (columns > 0) {
+            //add <TD> elements for each column
+            for (var j = 0; j <= columns; j++) {
+              if (i===0) { //Head of each column will be labled A, B, C...
+                if (j===0) {
+                  strRowColHTML += "<tr><td>LOO";
+                }
+                else {
+                  strRowColHTML += "</td><td>"+String.fromCharCode((64+j));
+                }
+              }
+              else {
+                if (j===0) {
+
+                  strRowColHTML += "<tr><td>"+i;
+                }
+                else {
+                    strRowColHTML +=
+                          "</td><td data-r='" + i +"' data-c='" + j+ "' data-f='"
+                          + flightId + "'>"+String.fromCharCode(745);
+
+                }
+              }
+            }
+            strRowColHTML += "</tr>";
           }
-          strRowColHTML += "</tr>";
         }
+        strRowColHTML += "</tr></table>";
       }
-      strRowColHTML += "<tr><td></td>";
-      for (var i = 1; i <= rowsLimit; i++){
-        if (newRows <=13 ) {
-          strRowColHTML += "<td>"+i+"</td>";
-        }
-        else if (i < 11 && newRows >13){
-          strRowColHTML += "<td>"+i+"</td>";
-        }
-        else if ((i ===11 || i ===23 ) && newRows >13){
-          strRowColHTML += "<td>..</td>";
-        }
-        else if (i ===13  && newRows >13) {
-          strRowColHTML += "<td>"+newRows+"</td>";
-        }
-        else {}
-      }
-      strRowColHTML += "</tr></table>";
-    }
-    // strRowColHTML += "";
-    console.log(strRowColHTML);
-    debugger;
-    var addRows = this.$el.find("#planeRowContent");
-    this.$el.append(strRowColHTML);
-
+      // strRowColHTML += "";
+      var addRows = x.find("#planeRowContent");
+      x.append(strRowColHTML);
+    });
   },
 
   loadDestinations: function() {

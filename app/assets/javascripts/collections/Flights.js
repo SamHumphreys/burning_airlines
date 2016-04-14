@@ -10,3 +10,13 @@ app.Flights = Backbone.Collection.extend({
     });
   }
 });
+
+//
+// create_table "flights", force: :cascade do |t|
+//   t.integer  "aeroplane_id"
+//   t.string   "origin"
+//   t.string   "destination"
+//   t.date     "date"
+//   t.datetime "created_at",   null: false
+//   t.datetime "updated_at",   null: false
+// end

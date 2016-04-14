@@ -38,15 +38,16 @@ app.AppView = Backbone.View.extend({
       aeroplaneSearchView.renderSearch();
   },
 
-  showFlight : function (){
+  showFlight : function (id){
       var appViewTemplate = $("#headerViewTemplate").html();
       this.$el.html(appViewTemplate);
       var appViewTemplate = $("#reservationContentTemplate").html();
       this.$el.append(appViewTemplate);
       var appViewTemplate = $("#reservationControlsTemplate").html();
       this.$el.append(appViewTemplate);
-      var reservationView = new app.ReservationsView({collection: app.flights});
-      reservationView.renderReservations();
+      var reservationView = new app.ReservationsView();
+      reservationView.renderReservations(id,{collection: app.reservations} );
+
   },
 
   flights: function () {

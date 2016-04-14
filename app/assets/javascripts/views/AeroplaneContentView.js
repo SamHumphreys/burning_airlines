@@ -94,7 +94,6 @@ app.AeroplaneContentView  = Backbone.View.extend({
     }
     // strRowColHTML += "";
     console.log(strRowColHTML);
-    debugger;
     var addRows = this.$el.find("#planeRowContent");
     this.$el.append(strRowColHTML);
   },

@@ -4,10 +4,17 @@ app.AeroplaneContentView  = Backbone.View.extend({
 
   el: ".main",
 
+
+
   events: {
     'click #addPlaneButton' : 'createAeroplane',
     'keypress textarea' : 'checkForEnter'
   },
+
+  initialize: function() {
+    console.log("INIT");
+  },
+
   //Function to list all Planes
   showAll : function (){
     this.collection.each(function (p) {

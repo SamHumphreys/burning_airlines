@@ -1,6 +1,6 @@
 <h1>some other crap including all the templates which you see based on your admin status</h1>
 
-<div class="main">
+<div class="main"></div>
 <h1>Welcome to burning airlines</h1>
 
 <script id="loginView" type="text/template">
@@ -42,12 +42,12 @@
   <input type="text" .class="controls"  id="aeroplaneColumns"/>
   <button id="addPlaneButton" class="controls">Create!</button>
 </script>
-
+<!-- THE BELOW WILL BE RENDERED IN CODE (THE WHOLE TABLE)
 <script id="aeroplaneAddContent" type='text/template'>
   <h4 id="planeName" class="content_h4"></h4>
   <table style="width:100%" class="content_table">
     <tr id="planeRow_content" class="content_table_row">
-</script>
+</script> -->
 
 <script id="searchControlsTemplate" type='text/template'>
   <h1>Search for flights</h1>
@@ -69,28 +69,20 @@
   </table>
 </script>
 
-<script id="aeroplaneAddContent" type='text/template'>
-  <h4 id="planeName" class="content_h4"></h4>
-  <table style="width:100%" class="content_table">
-    <tr id="planeRow_content" class="content_table_row">
+
+
+<script id="createFlight" type="text/template">
+  <div id="flightsSearch">
+    <input id="flightDate" type="date">
+    <select id="flightStart"></select>
+    <select id="flightEnd"></select>
+    <select id="flightPlane"></select>
+    <button id="flightCancel">Cancel</button>
+    <button id="flightSave">Save</button>
+  </div>
 </script>
 
-<script id="flightsScreen" type="text/template">
-  <div id="flightViewDiv">
-      <h2>
-        Flights
-      </h2>
-
-    <div id="flightsSearch">
-      <input id="flightDate" type="date">
-      <select id="flightStart"></select>
-      <select id="flightEnd"></select>
-      <select id="flightPlane"></select>
-      <br>
-      <button id="flightCancel">Cancel</button>
-      <button id="flightSave">Save</button>
-    </div>
-  </div>
+<script id="flightsViewTemplate" type="text/template">
   <div>
     <table id="flightsContentTable">
       <tr>
@@ -103,4 +95,3 @@
     </table>
   </div>
 </script>
-</div>

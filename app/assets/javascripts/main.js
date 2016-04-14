@@ -11,12 +11,13 @@ $(document).ready(function(){
   app.router = new app.Router();
 
   app.aeroplanes = new app.Aeroplanes();
-  app.aeroplanes.fetch().done(function () {
+  app.aeroplanes.fetch();
+
+  app.flights = new app.Flights();
+  app.flights.fetch().done(function () {
     Backbone.history.start();
   });
 
-  app.flights = new app.Flights();
-  app.flights.fetch();
 
   app.reservations = new app.Reservations();
   app.reservations.fetch();

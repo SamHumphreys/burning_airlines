@@ -25,6 +25,7 @@ app.AppView = Backbone.View.extend({
       // debugger;
       var xyz = new app.AeroplaneContentView();
       xyz.renderAdd();
+      this.buttonClicks();
   },
 
   search : function (){
@@ -36,6 +37,8 @@ app.AppView = Backbone.View.extend({
       this.$el.append(appViewTemplate);
       var aeroplaneSearchView = new app.AeroplaneSearchView({collection: app.flights});
       aeroplaneSearchView.renderSearch();
+      this.buttonClicks();
+
   },
 
   showFlight : function (id){
@@ -45,23 +48,40 @@ app.AppView = Backbone.View.extend({
       this.$el.append(appViewTemplate);
       var appViewTemplate = $("#reservationControlsTemplate").html();
       this.$el.append(appViewTemplate);
+<<<<<<< HEAD
       var reservationView = new app.ReservationsView();
       reservationView.renderReservations(id,{collection: app.reservations} );
+=======
+      var reservationView = new app.ReservationsView({collection: app.flights});
+      reservationView.renderReservations();
+      this.buttonClicks();
+>>>>>>> e97e9b88ffbdb415661080d9bb6b2cffa08e4446
 
   },
 
   flights: function () {
-    this.$el.html();
     var appViewTemplate = $("#headerViewTemplate").html();
-    this.$el.append(appViewTemplate);
+    this.$el.html(appViewTemplate);
     var createFlightViewTemplate = $('#createFlight').html();
     this.$el.append(createFlightViewTemplate);
     app.createFlight = new app.CreateFlightView();
     app.createFlight.render();
-
     var appViewTemplate = $('#flightsViewTemplate').html();
     this.$el.append(appViewTemplate);
+    app.flightsContents = new app.FlightsContentView({collection: app.flights});
+    app.flightsContents.render();
+    this.buttonClicks();
+  },
 
-
+  buttonClicks: function () {
+    $('#header_button1').on('click', function () {
+      window.location = '/#aeroplanesAdd';
+    });
+    $('#header_button2').on('click', function () {
+      window.location = '/#flights';
+    });
+    $('#header_button3').on('click', function () {
+      window.location = '/#search';
+    });
   }
 });

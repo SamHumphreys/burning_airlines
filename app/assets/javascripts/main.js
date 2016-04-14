@@ -11,17 +11,17 @@ $(document).ready(function(){
   app.aeroplanes.fetch();
 
   app.flights = new app.Flights();
-  app.flights.fetch()
+  app.flights.fetch();
 
-  setTimeout(function() {
+  window.setTimeout(function () {
     app.router = new app.Router();
     Backbone.history.start();
   }, 1000);
 
   // **** un-comment this next bit if you want a timer ****
-  // window.setInterval(function () {
-  //   app.aeroplanes.fetch();
-  //   app.flights.fetch();
-  // }, 4000);
+  window.setInterval(function () {
+    app.aeroplanes.fetch();
+    app.flights.fetch();
+  }, 4000);
 
 });

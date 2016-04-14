@@ -52,7 +52,7 @@ app.FlightView = Backbone.View.extend ({
   },
   createFlight: function () {
     var flight = new app.Flight();
-    
+
     var date = this.$el.find('#flightDate').val();
     var origin = this.$el.find('#flightStart').val();
     var dest = this.$el.find('#flightEnd').val();

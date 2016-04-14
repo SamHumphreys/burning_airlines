@@ -16,7 +16,6 @@ app.AppView = Backbone.View.extend({
   },
 
   aeroplanesAdd : function (){
-      // console.log("aeroplanesAdd : function (){);");
       var appViewTemplate = $("#headerViewTemplate").html();
       this.$el.html(appViewTemplate);
       var appViewTemplate = $("#aeroplaneAddTemplate").html();
@@ -24,8 +23,8 @@ app.AppView = Backbone.View.extend({
       var appViewTemplate = $("#aeroplaneAddContent").html();
       this.$el.append(appViewTemplate);
       var xyz = new app.AeroplaneContentView();
-
   },
+
 
   search : function (){
       var appViewTemplate = $("#headerViewTemplate").html();

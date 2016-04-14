@@ -4,6 +4,11 @@ app.AeroplaneContentView  = Backbone.View.extend({
 
   el: ".main",
 
+
+  initialize: function() {
+    console.log("INIT");
+  },
+
   events: {
     'click #addPlaneButton' : 'createAeroplane',
     'keypress textarea' : 'checkForEnter'

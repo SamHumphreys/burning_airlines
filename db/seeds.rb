@@ -18,10 +18,17 @@ a1.flights << f4
 
 
 Reservation.destroy_all
+r1 = Reservation.create :row => '2', :col =>'8'
+
 
 
 
 
 User.destroy_all
-u1 = User.create :name => "Jon", :email => "jonathan@zombie.com", :password => "chicken", :admin => true
-u2 = User.create :name => "okeh", :email => "okehguy@zombie.com", :password => "chicken"
+u1 = User.create :name => "Jon", :email => "jonathan@zombie.com", :password => "chickenchicken", :admin => true
+u2 = User.create :name => "okeh", :email => "okehguy@zombie.com", :password => "chickenchicken", :admin => false
+
+
+
+u2.reservations << r1
+f2.reservations << r1

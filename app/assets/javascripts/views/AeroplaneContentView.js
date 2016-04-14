@@ -40,7 +40,8 @@ app.AeroplaneContentView  = Backbone.View.extend({
 
   //Create a new aeroplane from data entered on screen
   createAeroplane: function () {
-    console.log("createAeroplane");
+    this.$(".planes_content_table").remove();
+    this.$("#resultsPlaneName").remove();
     var newAeroplane = new app.Aeroplane();
     var newName = this.$el.find("#aeroplaneName").val();
     var newRows = this.$el.find("#aeroplaneRows").val();
@@ -54,12 +55,13 @@ app.AeroplaneContentView  = Backbone.View.extend({
     this.$el.find("#aeroplaneName").val('').focus();
     this.$el.find("#aeroplaneRows").val('');
     this.$el.find("#aeroplaneColumns").val('');
-    var strPlane ="<h4>"+newName+"</h4></br>";
+    var strPlane ="<h4 id='resultsPlaneName'>"+newName+"</h4></br>";
     this.$el.append(strPlane);
 
     //draw the layout grid for a new plane. Note HTML <TR> are columns and HTML <TD> are rows
     var rowsLimit = 0;
-    newRows >13 ?  rowsLimit = 13 : rowLimit = newRows;
+    newRows >13 ?  rowsLimit = 13 : rowsLimit = newRows;
+
     if (newColumns > 0) {
       var strRowColHTML ='<table class="planes_content_table">';
       for (var i = 1; i <= newColumns; i++) {
@@ -91,6 +93,8 @@ app.AeroplaneContentView  = Backbone.View.extend({
       strRowColHTML += "</tr></table>";
     }
     // strRowColHTML += "";
+    console.log(strRowColHTML);
+    debugger;
     var addRows = this.$el.find("#planeRowContent");
     this.$el.append(strRowColHTML);
   },

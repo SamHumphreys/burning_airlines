@@ -25,6 +25,7 @@ app.AppView = Backbone.View.extend({
       // debugger;
       var xyz = new app.AeroplaneContentView();
       xyz.renderAdd();
+      this.buttonClicks();
   },
 
   search : function (){
@@ -36,6 +37,8 @@ app.AppView = Backbone.View.extend({
       this.$el.append(appViewTemplate);
       var aeroplaneSearchView = new app.AeroplaneSearchView({collection: app.flights});
       aeroplaneSearchView.renderSearch();
+      this.buttonClicks();
+
   },
 
   showFlight : function (){
@@ -47,6 +50,8 @@ app.AppView = Backbone.View.extend({
       this.$el.append(appViewTemplate);
       var reservationView = new app.ReservationsView({collection: app.flights});
       reservationView.renderReservations();
+      this.buttonClicks();
+
   },
 
   flights: function () {
@@ -58,7 +63,20 @@ app.AppView = Backbone.View.extend({
     app.createFlight.render();
     var appViewTemplate = $('#flightsViewTemplate').html();
     this.$el.append(appViewTemplate);
+    app.flightsContents = new app.FlightsContentView({collection: app.flights});
+    app.flightsContents.render();
+    this.buttonClicks();
+  },
 
-
+  buttonClicks: function () {
+    $('#header_button1').on('click', function () {
+      window.location = '/#aeroplanesAdd';
+    });
+    $('#header_button2').on('click', function () {
+      window.location = '/#flights';
+    });
+    $('#header_button3').on('click', function () {
+      window.location = '/#search';
+    });
   }
 });

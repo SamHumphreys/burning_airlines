@@ -16,6 +16,7 @@ app.ReservationsView  = Backbone.View.extend({
   },
 
   testFn: function(x) {
+    console.log(x);
     var row = x.currentTarget.attributes[0].value;
     var col = x.currentTarget.attributes[1].value;
     var flightId = x.currentTarget.attributes[2].value;

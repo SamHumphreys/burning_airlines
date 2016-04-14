@@ -10,8 +10,8 @@ $(document).ready(function(){
   app.aeroplanes = new app.Aeroplanes();
   app.aeroplanes.fetch();
 
-  // app.flights = new app.Flights();
-  // app.flights.fetch();
+  app.flights = new app.Flights();
+  app.flights.fetch();
 
   window.setTimeout(function () {
     app.router = new app.Router();

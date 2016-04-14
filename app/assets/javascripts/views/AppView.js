@@ -22,6 +22,7 @@ app.AppView = Backbone.View.extend({
       this.$el.append(appViewTemplate);
       var appViewTemplate = $("#aeroplaneAddContent").html();
       this.$el.append(appViewTemplate);
+      // debugger;
       var xyz = new app.AeroplaneContentView();
   },
 

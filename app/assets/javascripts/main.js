@@ -19,9 +19,9 @@ $(document).ready(function(){
   }, 1000);
 
   // **** un-comment this next bit if you want a timer ****
-  window.setInterval(function () {
-    app.aeroplanes.fetch();
-    app.flights.fetch();
-  }, 4000);
+  // window.setInterval(function () {
+  //   app.aeroplanes.fetch();
+  //   app.flights.fetch();
+  // }, 4000);
 
 });

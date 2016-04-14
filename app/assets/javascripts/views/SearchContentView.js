@@ -30,16 +30,21 @@ app.AeroplaneContentView  = Backbone.View.extend({
 
   //Create a new aeroplane from data entered on screen
   searchForFlights: function () {
+
+    console.log("searchForFlights: function () {");
     var fromAirport = this.$el.find("#searchFrom").val();
     var toAirport = this.$el.find("#searchTo").val();
     var searchResults = "";
     this.collection.each(function(f) {
       if (f.attributes.origin === fromAirport && f.attributes.destination === toAirport) {
-        // var searchResults = $('<tr/>').html('<td>' + f.date + '</td><td>' + planeID + '</td><td>' + f.origin + '/' + f.destination + '</td><td>' + f.aeroPlane_id + '</td><td>');
+        console.log(fromAirport + toAirport);
+        var searchResults = $('<tr>').html('<td>' + f.attributes.date + '</td><td>'  + f.attributes.origin + '/' + f.attributes.destination + '</td><td>' + f.attributes.aeroPlane_id + '</td></tr>');
+        var searchResults = "<tr><td>' + f.attributes.date + '</td><td>'  + f.attributes.origin + '/' + f.attributes.destination + '</td><td>' + f.attributes.aeroPlane_id + '</td></tr>')";
+
+        console.log(searchResults);
       }
     });
-    console.log("search results:");
-    console.log(searchResults);
-    // search.appendTo('#searchContentTable');
+    var addRows = this.$el.find("#searchContent");
+    this.$el.append(searchResults);
   }
 });

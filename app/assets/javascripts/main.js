@@ -5,16 +5,23 @@ _.templateSettings = {
 
 var app = app || {};
 
-var airports = ["","BNE", "CBR", "DWN", "MCY", "MLB", "NCL", "PTH", "SYD", "TVL"];
 
 $(document).ready(function(){
   app.aeroplanes = new app.Aeroplanes();
   app.aeroplanes.fetch();
 
   app.flights = new app.Flights();
-  app.flights.fetch().done(function(){
+  app.flights.fetch();
+
+  window.setTimeout(function () {
     app.router = new app.Router();
     Backbone.history.start();
-  });
+  }, 1000);
+
+  // **** un-comment this next bit if you want a timer ****
+  window.setInterval(function () {
+    app.aeroplanes.fetch();
+    app.flights.fetch();
+  }, 4000);
 
 });

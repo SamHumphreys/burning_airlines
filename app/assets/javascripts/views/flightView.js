@@ -1,10 +1,14 @@
 var app = app || {};
 
 app.FlightView = Backbone.View.extend ({
+
+  el: "#FlightViewDiv",
+
   events: {
-    'click button': 'createFlight',
+    'click #flightSave': 'createFlight',
     'click #flightCancel': 'cancelFlight'
   },
+
   render: function () {
     this.collection.each(function(f) {
       var flight = f.attributes;
@@ -42,14 +46,29 @@ app.FlightView = Backbone.View.extend ({
 
     var $flightPlane = $('#flightPlane');
     planes.forEach(function(plane) {
-      var $option = $('<option/>').text(plane[1]).val(plane[0]);
+      var $option = $('<option/>').text(plane[1]).attr({value: plane[0]});
       $flightPlane.append($option);
     });
   },
   createFlight: function () {
-    console.log('create flight clicked');
+    var flight = new app.Flight();
+    
+    var date = this.$el.find('#flightDate').val();
+    var origin = this.$el.find('#flightStart').val();
+    var dest = this.$el.find('#flightEnd').val();
+    var plane_id = Number(this.$el.find('#flightPlane').val());
+
+    flight.set({
+      aeroplane_id: plane_id,
+      origin : origin,
+      destination : dest,
+      date : date
+    });
+    flight.save();
+    app.flights.add(flight);
   },
   cancelFlight: function () {
     console.log('cancel flight clicked');
-  }
+  },
+
 });

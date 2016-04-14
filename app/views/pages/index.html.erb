@@ -80,14 +80,20 @@
 </script>
 
 <script id="flightsScreen" type="text/template">
-  <div>Header stuff here</div>
-  <div id="flightsSearch">
-    <input id="flightDate" type="date">
-    <select id="flightStart"></select>
-    <select id="flightEnd"></select>
-    <select id="flightPlane"></select>
-    <button id="flightCancel">Cancel</button>
-    <button id="flightSave">Save</button>
+  <div id="flightSearchContainer">
+      <h2>
+        Flights
+      </h2>
+
+    <div id="flightsSearch">
+      <input id="flightDate" type="date">
+      <br>
+      <select id="flightStart"></select>
+      <select id="flightEnd"></select>
+      <select id="flightPlane"></select>
+      <button id="flightCancel">Cancel</button>
+      <button id="flightSave">Save</button>
+    </div>
   </div>
   <div>
     <table id="flightsContentTable">

@@ -1,6 +1,6 @@
 <h1>some other crap including all the templates which you see based on your admin status</h1>
 
-<div class="main">
+<div class="main"></div>
 <h1>Welcome to burning airlines</h1>
 
 <script id="loginView" type="text/template">
@@ -40,7 +40,7 @@
   <input type="text" .class="controls"  id="aeroplaneRows"/>
   <label for="Airplane Name: ">Plane name columns</label>
   <input type="text" .class="controls"  id="aeroplaneColumns"/>
-  <button class="controls">Create!</button>
+  <button id="addPlaneButton" class="controls">Create!</button>
 </script>
 
 <script id="aeroplaneAddContent" type='text/template'>
@@ -59,7 +59,7 @@
 </script>
 
 <script id="searchContent" type="text/template">
-  <table id="flightsContentTable">
+  <table id="searchContentTable">
     <tr>
       <th>Date</th>
       <th>Flight</th>
@@ -69,11 +69,6 @@
   </table>
 </script>
 
-<script id="aeroplaneAddContent" type='text/template'>
-  <h4 id="planeName" class="content_h4"></h4>
-  <table style="width:100%" class="content_table">
-    <tr id="planeRow_content" class="content_table_row">
-</script>
 
 
 <script id="createFlight" type="text/template">
@@ -86,6 +81,7 @@
     <button id="flightSave">Save</button>
   </div>
 </script>
+
 
 <script id="flightsViewTemplate" type="text/template">
   <div>
@@ -100,5 +96,3 @@
     </table>
   </div>
 </script>
-
-</div>

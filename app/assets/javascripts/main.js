@@ -11,7 +11,7 @@ $(document).ready(function(){
   app.router = new app.Router();
 
   app.aeroplanes = new app.Aeroplanes();
-  app.aeroplanes.fetch().done(function () {;
+  app.aeroplanes.fetch().done(function () {
     Backbone.history.start();
   });
 

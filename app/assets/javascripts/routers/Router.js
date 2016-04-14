@@ -53,13 +53,6 @@ app.Router = Backbone.Router.extend({
     appView.showFlight(id);
     // var appView = new app.AppView();
     // appView.search();
-  },
-
-  // showRes: function () { //Test route for reservations dev
-  //   console.log("SHOW RES");
-  //   var appView = new app.AppView();
-  //   appView.reservation();
-  // }
-
+  }
 
 });

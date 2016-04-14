@@ -50,6 +50,7 @@ app.AppView = Backbone.View.extend({
   },
 
   flights: function () {
+    console.log(this.$el);
     this.$el.html();
     var appViewTemplate = $("#headerViewTemplate").html();
     this.$el.append(appViewTemplate);

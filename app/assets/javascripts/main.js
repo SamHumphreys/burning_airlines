@@ -11,18 +11,18 @@ $(document).ready(function(){
   app.router = new app.Router();
 
   app.aeroplanes = new app.Aeroplanes();
-  app.aeroplanes.fetch();
-
-  app.flights = new app.Flights();
-  app.flights.fetch().done(function () {
+  app.aeroplanes.fetch().done(function () {;
     Backbone.history.start();
   });
 
+  app.flights = new app.Flights();
+  app.flights.fetch();
+
 
   // **** un-comment this next bit if you want a timer ****
-  // window.setInterval(function () {
-  //   app.aeroplanes.fetch();
-  //   app.flights.fetch();
-  // }, 4000);
+  window.setInterval(function () {
+    app.aeroplanes.fetch();
+    app.flights.fetch();
+  }, 4000);
 
 });
